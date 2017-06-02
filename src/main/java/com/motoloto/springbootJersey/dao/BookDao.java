@@ -23,7 +23,7 @@ public class BookDao {
 
     public Collection<Book> getAll(){ return bookList.values();}
 
-    public Book getBookById(Integer id){
+    public Book getBookById(String id){
         return bookList.get(id);
     }
 

@@ -29,7 +29,7 @@ public class BookService {
         return dao.getAll();
     }
 
-    public Book getBook(Integer oid) {
+    public Book getBook(String oid) {
         return dao.getBookById(oid);
     }
 

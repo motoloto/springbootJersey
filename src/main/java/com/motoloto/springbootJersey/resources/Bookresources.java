@@ -30,7 +30,7 @@ public class Bookresources {
     @GET
     @Produces("application/json")
     @Path("/{oid}")
-    public Book getBook(@PathParam("oid") Integer oid) {
+    public Book getBook(@PathParam("oid") String oid) {
         return bookService.getBook(oid);
     }
     @POST
