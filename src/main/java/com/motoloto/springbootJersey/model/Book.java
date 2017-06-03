@@ -1,14 +1,26 @@
 package com.motoloto.springbootJersey.model;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+
 /**
  * Created by motoloto on 2017/6/2.
  */
+@Entity
 public class Book {
+
+    @Id
     private String id;
 
+    @Column
     private String bookName;
 
+    @Column
     private String author;
+
+    public Book() {
+    }
 
     public Book(String id, String bookName, String author) {
         this.id = id;
