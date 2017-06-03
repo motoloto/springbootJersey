@@ -3,12 +3,13 @@ package com.motoloto.springbootJersey.model;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import java.io.Serializable;
 
 /**
  * Created by motoloto on 2017/6/2.
  */
 @Entity
-public class Book {
+public class Book implements Serializable {
 
     @Id
     private String id;

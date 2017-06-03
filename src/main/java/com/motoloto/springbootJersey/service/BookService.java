@@ -1,6 +1,6 @@
 package com.motoloto.springbootJersey.service;
 
-import com.motoloto.springbootJersey.dao.BookDao;
+import com.motoloto.springbootJersey.dao.BookRepository;
 import com.motoloto.springbootJersey.model.Book;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -16,29 +16,31 @@ import java.util.List;
 public class BookService {
 
     @Autowired
-    BookDao dao;
+    BookRepository dao;
 
     public BookService(){
     }
 
-    public BookService(BookDao dao) {
+    public BookService(BookRepository dao) {
         this.dao = dao;
     }
 
-    public Collection getAllBooks() {
-        return dao.getAll();
+    public List getAllBooks() {
+        return dao.findAll();
     }
 
     public Book getBook(String oid) {
-        return dao.getBookById(oid);
+        return dao.findOne(oid);
     }
 
     public void addBook(Book book) {
-        dao.createOrUpdate(book);
+        if(!dao.exists(book.getId())){
+            dao.save(book);
+        }
     }
 
     public void updateBook(String oid, Book book) {
-        dao.createOrUpdate(book);
+        dao.save(book);
     }
 
     public void deleteBook(String oid) {
